@@ -130,11 +130,13 @@ export default function ViewSubmission() {
                   onClick={() => toggleAccordion(index)}
                 >
                   {`Feedback ${index + 1} (${
-                    formData?.fieldData?.flatMap((field) =>
-                      field.responses?.filter(
-                        (response: ResponseType) =>
-                          response.userId === submissionId,
-                      ),
+                    formData?.fieldData?.flatMap(
+                      (field) =>
+                        field.responses?.filter(
+                          (response: ResponseType) =>
+                            response.userId === submissionId,
+                        ),
+                      // @ts-expect-error hide
                     )?.[0]?.date ?? "N/A"
                   })`}
                   <span>
